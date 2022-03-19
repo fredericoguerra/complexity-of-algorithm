@@ -14,7 +14,7 @@ python insertionsort.py
 
 Once you run the Insert Sort script, you'll see the menu below containing one example on top of it. You must type 1, 2 or 3 to test in 4 different arrays of 1000, 10000 and 100000 elements, respectivelly.
 
-## Menu:
+### Menu:
 
 -----------------------------------------------------------------------
 ```
