@@ -25,7 +25,7 @@ def print_menu_l0():
 
 def print_menu_l1():
     print('\n-----------------------------------------------------------------------')
-    print('Now please choose 1 of the 3 sizes below to test the InsertionSort algorithm in 4 example arrays:')
+    print('Now please choose 1 of the 3 sizes below to test the algorithm in 4 example arrays:')
     for key in menu_options.keys():
         print (key, '--', menu_options[key] )
 
