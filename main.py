@@ -46,10 +46,10 @@ def test_example(alg: int):
             print('\n\nSelection Sort:\n')
             B = selection_sort(A, n)
         elif alg == 3:
-            print('\n\Quick Sort:\n')
+            print('\n\nQuick Sort:\n')
             B = quick_sort(A, 0, n-1)
         elif alg == 4:
-            print('\n\Merge Sort:\n')
+            print('\n\nMerge Sort:\n')
             B = merge_sort(A, n)
         print('\nSorted array:\n\n', B)
 
