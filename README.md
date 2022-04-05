@@ -2,9 +2,8 @@
 This repo has the Insertion Sort algorithm implementation in Python 3.9.0.
 
 ## 1. Run the main file
-To run this project locally after pushing into your local repository, run this commands below:
+To use this project locally after pushing into your local repository run this commands below:
 
-and
 ```
 python main.py
 ```
