@@ -54,7 +54,7 @@ def test_example(alg: int):
             print('\n\nMerge Sort:\n')
             B = merge_sort(A, n)
         elif alg == 5:
-            print('\n\Counting Sort:\n')
+            print('\n\nCounting Sort:\n')
             B = counting_sort(A, n)
         print('\nSorted array:\n\n', B)
 
