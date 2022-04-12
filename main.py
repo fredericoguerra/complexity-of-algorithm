@@ -4,6 +4,7 @@ from algorithms.insertion import insertion_sort
 from algorithms.quick import partition, quick_sort
 from algorithms.merge import merge_sort
 from algorithms.counting import counting_sort
+from algorithms.radix import radix, counting_for_radix
 
 dir = os.getcwd()
 
@@ -20,7 +21,8 @@ menu_options_lv0 = {
     3: 'Quick Sort',
     4: 'Merge Sort',
     5: 'Counting Sort',
-    6: 'Exit'
+    6: 'Radix Sort',
+    7: 'Exit'
 }
 
 def print_menu_l0():
@@ -56,6 +58,9 @@ def test_example(alg: int):
         elif alg == 5:
             print('\n\nCounting Sort:\n')
             B = counting_sort(A, n)
+        elif alg == 6:
+            print('\n\nRadix Sort:\n')
+            B = radix(A, n)
         print('\nSorted array:\n\n', B)
 
 def one_thousand_test(n: int, alg: int):
@@ -122,7 +127,20 @@ def one_thousand_test(n: int, alg: int):
                 A = file.read().splitlines()
                 A = list(map(int, A))
                 print('Unsorted array of {} elements:\n\n'.format(n), A)
-                B = merge_sort(A, n)
+                B = counting_sort(A, n)
+                print('\nSorted array:\n\n', B)
+    elif alg == 6:
+        print('\Radix Sort:\n')
+        for i in range(1,5):
+            print('\n----------------------------------------------------------------------')
+            print('Example 0{}:'.format(i))
+            print('----------------------------------------------------------------------\n\n')
+            with open(dir+'\instancias-numericas\instancias-num\\num.{}.{}.in'.format(str(n),str(i)),'r') as file:
+                n = int(file.readline().rstrip())
+                A = file.read().splitlines()
+                A = list(map(int, A))
+                print('Unsorted array of {} elements:\n\n'.format(n), A)
+                B = radix(A, n)
                 print('\nSorted array:\n\n', B)
     else:
         'Algorithm not defined'
@@ -136,7 +154,7 @@ if __name__ == '__main__':
             alg = int(input('Enter your choice: '))
         except:
             print('Wrong input. Please enter a number from 1 to 3')
-        if alg in range(1,6):
+        if alg in range(1,7):
             print('\n-----------------------------------------------------------------------\n')
             print('This script sorts an array A of N integers like in the example below:\n\n')
             test_example(alg=alg)
@@ -157,8 +175,8 @@ if __name__ == '__main__':
                 exit()
             else:
                 print('Invalid option. Please enter a number between 1 and 4.')
-        elif alg == 6:
+        elif alg == 7:
             print('Thanks. See you.')
             exit()
         else:
-            print('Invalid option. Please enter a number between 1 and 6.')
+            print('Invalid option. Please enter a number between 1 and 7.')
