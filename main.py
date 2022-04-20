@@ -4,7 +4,9 @@ from algorithms.insertion import insertion_sort
 from algorithms.quick import partition, quick_sort
 from algorithms.merge import merge_sort
 from algorithms.counting import counting_sort
-from algorithms.radix import radix, counting_for_radix
+from algorithms.radix import radix
+from algorithms.heapmax import run_max_heap
+from algorithms.heapsort import heap_sort
 
 dir = os.getcwd()
 
@@ -22,7 +24,9 @@ menu_options_lv0 = {
     4: 'Merge Sort',
     5: 'Counting Sort',
     6: 'Radix Sort',
-    7: 'Exit'
+    7: 'Max Heap',
+    8: 'Heap Sort',
+    9: 'Exit'
 }
 
 def print_menu_l0():
@@ -61,6 +65,12 @@ def test_example(alg: int):
         elif alg == 6:
             print('\n\nRadix Sort:\n')
             B = radix(A, n)
+        elif alg == 7:
+            print('\n\nMax Heap:\n')
+            B = run_max_heap(A, n)
+        elif alg == 8:
+            print('\n\nHeap Sort:\n')
+            B = heap_sort(A, n)
         print('\nSorted array:\n\n', B)
 
 def one_thousand_test(n: int, alg: int):
@@ -142,6 +152,32 @@ def one_thousand_test(n: int, alg: int):
                 print('Unsorted array of {} elements:\n\n'.format(n), A)
                 B = radix(A, n)
                 print('\nSorted array:\n\n', B)
+    elif alg == 7:
+        print('\Max Heap:\n')
+        for i in range(1,5):
+            print('\n----------------------------------------------------------------------')
+            print('Example 0{}:'.format(i))
+            print('----------------------------------------------------------------------\n\n')
+            with open(dir+'\instancias-numericas\instancias-num\\num.{}.{}.in'.format(str(n),str(i)),'r') as file:
+                n = int(file.readline().rstrip())
+                A = file.read().splitlines()
+                A = list(map(int, A))
+                print('Unsorted array of {} elements:\n\n'.format(n), A)
+                B = run_max_heap(A, n)
+                print('\nSorted array:\n\n', B)
+    elif alg == 8:
+        print('\Heap Sort:\n')
+        for i in range(1,5):
+            print('\n----------------------------------------------------------------------')
+            print('Example 0{}:'.format(i))
+            print('----------------------------------------------------------------------\n\n')
+            with open(dir+'\instancias-numericas\instancias-num\\num.{}.{}.in'.format(str(n),str(i)),'r') as file:
+                n = int(file.readline().rstrip())
+                A = file.read().splitlines()
+                A = list(map(int, A))
+                print('Unsorted array of {} elements:\n\n'.format(n), A)
+                B = heap_sort(A, n)
+                print('\nSorted array:\n\n', B)
     else:
         'Algorithm not defined'
         exit()
@@ -154,7 +190,7 @@ if __name__ == '__main__':
             alg = int(input('Enter your choice: '))
         except:
             print('Wrong input. Please enter a number from 1 to 3')
-        if alg in range(1,7):
+        if alg in range(1,9):
             print('\n-----------------------------------------------------------------------\n')
             print('This script sorts an array A of N integers like in the example below:\n\n')
             test_example(alg=alg)
@@ -175,7 +211,7 @@ if __name__ == '__main__':
                 exit()
             else:
                 print('Invalid option. Please enter a number between 1 and 4.')
-        elif alg == 7:
+        elif alg == 9:
             print('Thanks. See you.')
             exit()
         else:
