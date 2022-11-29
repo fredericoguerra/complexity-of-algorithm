@@ -1,1 +1,1 @@
-*.1 linguist-language=Text
+*.roff linguist-detectable=false
