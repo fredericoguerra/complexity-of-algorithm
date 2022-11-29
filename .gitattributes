@@ -1,1 +1,2 @@
-*.Roff linguist-detectable=false
+*.roff linguist-detectable=false
+*.python linguist-detectable=true
